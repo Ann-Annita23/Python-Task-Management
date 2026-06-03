@@ -38,7 +38,7 @@ def main():
                         break
             except ValueError as e:
                 print(e)
-    add_task(title, description,due_date, tasks_List)
+            add_task(title, description,due_date, tasks_List)
 
         elif choice == "2":
             view_pending_tasks(tasks_List)
