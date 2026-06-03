@@ -15,19 +15,30 @@ def main():
         choice = input("Enter your choice (1-5): ")
 
         if choice == "1":
-            while True:
-                title=input("Enter Task Title: ").strip()
-                if validate_task_title(title):
-                    break
-            while True:        
-                description = input("Enter Task Decsription: ")
-                if validate_task_description(description):
-                    break
-            while True:     
-                due_date = input("Enter Due Date (YYYY-MM-DD): ")
-                if validate_due_date(due_date):
-                    break
-                add_task(title, description,due_date, tasks_List)
+            try:
+                while True:
+                    title = input("Enter Task Title: ").strip()
+                    if validate_task_title(title):
+                        break
+            except ValueError as e:
+                print(e)
+                
+            try:
+                while True:        
+                    description = input("Enter Task Description: ").strip()
+                    if validate_task_description(description):
+                        break
+            except ValueError as e:
+                print(e)
+
+            try:
+                while True:     
+                    due_date = input("Enter Due Date (YYYY-MM-DD): ").strip()
+                    if validate_due_date(due_date):
+                        break
+            except ValueError as e:
+                print(e)
+    add_task(title, description,due_date, tasks_List)
 
         elif choice == "2":
             view_pending_tasks(tasks_List)
